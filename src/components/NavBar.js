@@ -11,11 +11,27 @@ const linkStyle = {
 };
 
 const navLinks = [
-  "No Time to Host?",
-  "Become a Host",
-  "Help",
-  "Sign Up",
-  "Log In"
+
+  {
+    title: "No Time to Host?",
+    to: '/no-time-to-host' 
+  },
+  {
+    title: "Become a Host",
+    to: '/become-host' 
+  },
+  {
+    title: "Help",
+    to: '/help' 
+  },
+  {
+    title: "Log In",
+    to: '/login' 
+  },
+  {
+    title: "Sign Up",
+    to: '/signup' 
+  }
 ];
 
 const NavBar = () =>
@@ -27,21 +43,13 @@ const NavBar = () =>
       alt="logo"
     />
     <input style={{ flex: "2" }} placeholder="Search Terms" />
-    <Link style={linkStyle} to="/a">
-      No Time to Host?
-    </Link>
-    <Link style={linkStyle} to="/aa">
-      Become a Host
-    </Link>
-    <Link style={linkStyle} to="/a">
-      Help
-    </Link>
-    <Link style={linkStyle} to="/aa">
-      Sign Up
-    </Link>
-    <Link style={linkStyle} to="/a">
-      Log In
-    </Link>
+
+    {navLinks.map((navItem, i) => 
+      <Link style={linkStyle} to={navItem.to}>
+        {navItem.title}
+      </Link>
+    )}
+
   </RowContainer>;
 
 export default NavBar;
